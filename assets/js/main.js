@@ -26,13 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // activation for work-area video 
-    let mainVideo = document.getElementById('video-main');
-    mainVideo.addEventListener('click', function () {
-        let bp = BigPicture({
-            el: mainVideo,
-            ytSrc: event.target.closest('.video-wrap').dataset.ytId,
+    let playTriggers = document.querySelectorAll('.video-wrap .play-v');
+    playTriggers.forEach(each => {
+        each.addEventListener('click', function (event) {
+            let bp = BigPicture({
+                el: each,
+                ytSrc: event.target.closest('.video-wrap').dataset.ytId,
+            })
         })
     })
+
 
 
     // Activation for Seed Carousel 
